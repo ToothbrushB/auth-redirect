@@ -8,7 +8,13 @@
 </head>
 <body>
     <p>Redirecting you, please wait</p>
+    <p id="code"></p>
+    <button onclick="copyCode()">Copy code</button>
     <script>
+        function copyCode() {
+        navigator.clipboard.writeText(params.code);
+        }
+
         const getQueryParams = (url) => {
             let qParams = {};
             // create a binding tag to use a property called search
@@ -25,6 +31,7 @@
             return qParams;
         };
         params = getQueryParams(window.location.href);
+        document.getElementById('code').innerHTML = "code is: "+params.code;
         window.location.href = 'http://127.0.0.1:3000/?code=' + params.code;
     </script>
 </body>
