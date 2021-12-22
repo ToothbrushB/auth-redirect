@@ -24,8 +24,8 @@
             }
             return qParams;
         };
-
-        console.log(getQueryParams(window.location.href));
+        params = getQueryParams(window.location.href);
+        window.location.href = 'http://127.0.0.1:3000/auth-redirect?code=' + params.code;
     </script>
 </body>
 </html>
