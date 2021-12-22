@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Redirecting you, please wait</p>
+    <script>
+        const getQueryParams = (url) => {
+            let qParams = {};
+            // create a binding tag to use a property called search
+            let anchor = document.createElement('a');
+            // assign the href URL of the anchor tag
+            anchor.href = url;
+            // search property returns URL query string
+            let qStrings = anchor.search.substring(1);
+            let params = qStrings.split('&');
+            for (let i = 0; i < params.length; i++) {
+            let pair = params[i].split('=');
+                qParams[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            return qParams;
+        };
+
+        console.log(getQueryParams(window.location.href));
+    </script>
+</body>
+</html>
