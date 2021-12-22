@@ -31,7 +31,8 @@
             return qParams;
         };
         params = getQueryParams(window.location.href);
-        document.getElementById('code').innerHTML = "code is: "+params.code;
+        document.getElementById('code').innerHTML = "code is: "+params.code
+        window.location.href = "http://localhost:3000/auth/callback?code="+params.code;
     </script>
 </body>
 </html>
